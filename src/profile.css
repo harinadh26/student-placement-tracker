@@ -1,0 +1,557 @@
+.profile-page {
+  width: calc(100% - 64px);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 0 50px;
+}
+
+.profile-top {
+  margin-bottom: 28px;
+}
+
+.back-btn {
+  border: none;
+  background: transparent;
+  color: #2563eb;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 650;
+  padding: 7px 0;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}
+
+.profile-top h1 {
+  margin: 18px 0 5px;
+  font-size: 30px;
+  color: #172033;
+}
+
+.profile-top p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.5fr;
+  gap: 20px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.profile-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 26px;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.045);
+}
+
+.profile-card h2 {
+  color: #172033;
+  font-size: 19px;
+}
+
+.profile-card-heading {
+  margin-bottom: 5px;
+}
+
+.profile-card-heading p {
+  margin-top: 5px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* =========================
+   USER CARD
+========================= */
+
+.user-profile-card {
+  text-align: center;
+}
+
+.profile-avatar {
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 17px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  font-weight: 750;
+  background: #e8f0ff;
+  color: #2563eb;
+}
+
+.user-profile-card h2 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.profile-email {
+  color: #6b7280;
+  margin: 0;
+  font-size: 13px;
+  word-break: break-word;
+}
+
+.profile-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 24px 0;
+}
+
+.profile-info {
+  text-align: left;
+}
+
+.profile-info div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f1f3;
+  gap: 15px;
+}
+
+.profile-info div:last-child {
+  border-bottom: none;
+}
+
+.profile-info span {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.profile-info strong {
+  text-align: right;
+  color: #374151;
+  font-size: 12px;
+  word-break: break-word;
+}
+
+.active-account {
+  color: #16a34a !important;
+}
+
+/* =========================
+   CHANGE PASSWORD BUTTON
+========================= */
+
+.change-password-btn {
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid #dbeafe;
+  background: #eff6ff;
+  color: #2563eb;
+  border-radius: 9px;
+  padding: 10px 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.change-password-btn:hover {
+  background: #dbeafe;
+}
+
+/* =========================
+   PROFILE STATS
+========================= */
+
+.profile-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.profile-stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #eef0f3;
+}
+
+.profile-stat-icon {
+  font-size: 23px;
+}
+
+.profile-stat div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.profile-stat strong {
+  font-size: 22px;
+  color: #172033;
+}
+
+.profile-stat span:last-child {
+  color: #6b7280;
+  font-size: 11px;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.profile-progress-section {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.progress-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 9px;
+}
+
+.progress-heading span {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.progress-heading strong {
+  color: #2563eb;
+  font-size: 14px;
+}
+
+.profile-progress {
+  width: 100%;
+  height: 9px;
+  border-radius: 20px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.profile-progress-fill {
+  height: 100%;
+  background: #2563eb;
+  border-radius: inherit;
+  transition: width 0.5s ease;
+}
+
+/* =========================
+   PASSWORD CARD
+========================= */
+
+.password-card {
+  margin-top: 20px;
+}
+
+.password-heading {
+  margin-bottom: 20px;
+}
+
+.password-heading h2 {
+  margin-bottom: 5px;
+}
+
+.password-heading p {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.profile-message {
+  padding: 11px 13px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-message.success {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.profile-message.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.password-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.password-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.password-field label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.password-field input {
+  height: 42px;
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+  padding: 0 11px;
+  outline: none;
+  background: #ffffff;
+  color: #172033;
+}
+
+.password-field input:focus {
+  border-color: #2563eb;
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.password-actions {
+  grid-column: span 3;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.password-cancel-btn,
+.password-save-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-weight: 650;
+}
+
+.password-cancel-btn {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.password-cancel-btn:hover {
+  background: #e5e7eb;
+}
+
+.password-save-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.password-save-btn:hover {
+  background: #1d4ed8;
+}
+
+.password-save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================
+   TIPS
+========================= */
+
+.profile-tips {
+  margin-top: 20px;
+}
+
+.profile-tips h2 {
+  margin-bottom: 20px;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.tips-grid > div {
+  display: flex;
+  gap: 12px;
+  padding: 15px;
+  border-radius: 11px;
+  background: #f8fafc;
+  border: 1px solid #eef0f3;
+}
+
+.tips-grid > div > span {
+  font-size: 23px;
+}
+
+.tips-grid strong {
+  color: #374151;
+  font-size: 13px;
+}
+
+.tips-grid p {
+  margin-top: 5px;
+  color: #6b7280;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+.dark-mode .profile-page {
+  color: #f3f4f6;
+}
+
+.dark-mode .profile-top h1 {
+  color: #f9fafb;
+}
+
+.dark-mode .profile-top p,
+.dark-mode .profile-email,
+.dark-mode .profile-info span,
+.dark-mode .profile-card-heading p,
+.dark-mode .password-heading p,
+.dark-mode .progress-heading span {
+  color: #9ca3af;
+}
+
+.dark-mode .back-btn {
+  color: #93c5fd;
+}
+
+.dark-mode .profile-card {
+  background: #111827;
+  border-color: #1f2937;
+  box-shadow: none;
+}
+
+.dark-mode .profile-card h2,
+.dark-mode .user-profile-card h2,
+.dark-mode .profile-info strong,
+.dark-mode .profile-stat strong {
+  color: #f9fafb;
+}
+
+.dark-mode .profile-divider,
+.dark-mode .profile-info div,
+.dark-mode .profile-progress-section {
+  border-color: #1f2937;
+}
+
+.dark-mode .profile-stat,
+.dark-mode .tips-grid > div {
+  background: #0f172a;
+  border-color: #1f2937;
+}
+
+.dark-mode .profile-stat span:last-child,
+.dark-mode .tips-grid p {
+  color: #9ca3af;
+}
+
+.dark-mode .tips-grid strong {
+  color: #e5e7eb;
+}
+
+.dark-mode .change-password-btn {
+  background: #172554;
+  border-color: #1e3a8a;
+  color: #93c5fd;
+}
+
+.dark-mode .change-password-btn:hover {
+  background: #1e3a8a;
+}
+
+.dark-mode .password-field label {
+  color: #d1d5db;
+}
+
+.dark-mode .password-field input {
+  background: #0f172a;
+  color: #f9fafb;
+  border-color: #374151;
+}
+
+.dark-mode .password-field input:focus {
+  border-color: #60a5fa;
+}
+
+.dark-mode .password-cancel-btn {
+  background: #1f2937;
+  color: #f3f4f6;
+}
+
+.dark-mode .password-cancel-btn:hover {
+  background: #374151;
+}
+
+.dark-mode .profile-progress {
+  background: #374151;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .password-form {
+    grid-template-columns: 1fr;
+  }
+
+  .password-actions {
+    grid-column: span 1;
+  }
+
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-page {
+    width: calc(100% - 30px);
+    padding: 22px 0 35px;
+  }
+
+  .profile-card {
+    padding: 20px;
+  }
+
+  .profile-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-info div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .profile-info strong {
+    text-align: left;
+  }
+
+  .password-actions {
+    flex-direction: column-reverse;
+  }
+
+  .password-actions button {
+    width: 100%;
+  }
+}
