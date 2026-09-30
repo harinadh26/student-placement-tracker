@@ -2571,7 +2571,7 @@ function App() {
 
     <span className="footer-divider">•</span>
 
-    <span>Built by Harinadh</span>
+    <span>Built by Hari</span>
 
     <a
       href="https://github.com/harinadh26"
@@ -2583,7 +2583,7 @@ function App() {
     </a>
 
     <a
-  href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=feedbackforyou01@gmail.com&su=Student%20Placement%20Tracker%20Feedback"
+  href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=feedbackbyyou01@gmail.com&su=Student%20Placement%20Tracker%20Feedback"
   target="_blank"
   rel="noopener noreferrer"
   className="footer-link"
