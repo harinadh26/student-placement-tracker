@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./Auth.css";
 
+const API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 function Auth({ onLogin }) {
   const [isLogin, setIsLogin] = useState(true);
 
@@ -28,9 +31,8 @@ function Auth({ onLogin }) {
 
     try {
       const endpoint = isLogin
-        ? "http://localhost:5000/api/auth/login"
-        : "http://localhost:5000/api/auth/register";
-
+  ? `${API_URL}/api/auth/login`
+  : `${API_URL}/api/auth/register`;
       const body = isLogin
         ? {
             email: form.email,
