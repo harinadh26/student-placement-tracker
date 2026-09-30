@@ -2583,11 +2583,13 @@ function App() {
     </a>
 
     <a
-      href="mailto:your-feedbackbyyou01@.com?subject=Student%20Placement%20Tracker%20Feedback"
-      className="footer-link"
-    >
-      Feedback
-    </a>
+  href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=feedbackforyou01@gmail.com&su=Student%20Placement%20Tracker%20Feedback"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="footer-link"
+>
+  Feedback
+</a>
   </div>
 </footer>
     </div>
