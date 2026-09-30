@@ -24,6 +24,8 @@ import autoTable from "jspdf-autotable";
 
 const API_URL =
   import.meta.env.VITE_API_URL || "http://localhost:5000";
+ 
+const [isSaving, setIsSaving] = useState(false);
 
 const STATUS_OPTIONS = [
   "Applied",
@@ -669,80 +671,81 @@ function App() {
   ========================= */
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    const currentToken =
-      localStorage.getItem("token");
+  if (isSaving) return;
 
-    if (!currentToken) {
-      setErrorMessage(
-        "Please login again."
-      );
-      return;
-    }
+  setIsSaving(true);
 
-    if (!formData.company.trim()) {
-      setErrorMessage(
-        "Company name is required."
-      );
-      return;
-    }
+  const currentToken =
+    localStorage.getItem("token");
 
-    if (!formData.role.trim()) {
-      setErrorMessage(
-        "Job role is required."
-      );
-      return;
-    }
+  if (!currentToken) {
+    setIsSaving(false);
+    setErrorMessage("Please login again.");
+    return;
+  }
 
-    try {
-      setErrorMessage("");
+  if (!formData.company.trim()) {
+    setIsSaving(false);
+    setErrorMessage("Company name is required.");
+    return;
+  }
 
-      const url = editingId
-        ? `${API_URL}/api/applications/${editingId}`
-        : `${API_URL}/api/applications`;
+  if (!formData.role.trim()) {
+    setIsSaving(false);
+    setErrorMessage("Job role is required.");
+    return;
+  }
 
-      const method = editingId
-        ? "PUT"
-        : "POST";
+  try {
+    setErrorMessage("");
 
-      const response = await fetch(url, {
-        method,
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${currentToken}`,
-        },
-        body: JSON.stringify(formData),
-      });
+    const url = editingId
+      ? `${API_URL}/api/applications/${editingId}`
+      : `${API_URL}/api/applications`;
 
-      const data = await response.json();
+    const method = editingId
+      ? "PUT"
+      : "POST";
 
-      if (!response.ok) {
-        throw new Error(
-          data.message ||
-            "Could not save application"
-        );
-      }
+    const response = await fetch(url, {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${currentToken}`,
+      },
+      body: JSON.stringify(formData),
+    });
 
-      await fetchApplications();
+    const data = await response.json();
 
-      closeModal();
-
-      setSuccessMessage(
-        editingId
-          ? "Application updated successfully."
-          : "Application added successfully."
-      );
-    } catch (error) {
-      console.error(error);
-
-      setErrorMessage(
-        error.message ||
-          "Could not save application."
+    if (!response.ok) {
+      throw new Error(
+        data.message || "Could not save application"
       );
     }
-  };
 
+    await fetchApplications();
+
+    closeModal();
+
+    setSuccessMessage(
+      editingId
+        ? "Application updated successfully."
+        : "Application added successfully."
+    );
+  } catch (error) {
+    console.error(error);
+
+    setErrorMessage(
+      error.message || "Could not save application."
+    );
+  } finally {
+    setIsSaving(false);
+  }
+};
+     
   /* =========================
      DELETE
   ========================= */
@@ -2553,13 +2556,16 @@ function App() {
                 </button>
 
                 <button
-                  type="submit"
-                  className="save-btn"
-                >
-                  {editingId
-                    ? "Update Application"
-                    : "Save Application"}
-                </button>
+  type="submit"
+  className="save-btn"
+  disabled={isSaving}
+>
+  {isSaving
+    ? "Saving..."
+    : editingId
+      ? "Update Application"
+      : "Save Application"}
+</button>
               </div>
             </form>
           </div>
