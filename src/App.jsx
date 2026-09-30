@@ -2565,6 +2565,31 @@ function App() {
           </div>
         </div>
       )}
+      <footer className="app-footer">
+  <div className="footer-content">
+    <span>© 2026 Student Placement Tracker</span>
+
+    <span className="footer-divider">•</span>
+
+    <span>Built by Harinadh</span>
+
+    <a
+      href="https://github.com/harinadh26"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="footer-link"
+    >
+      GitHub
+    </a>
+
+    <a
+      href="mailto:your-feedbackbyyou01@.com?subject=Student%20Placement%20Tracker%20Feedback"
+      className="footer-link"
+    >
+      Feedback
+    </a>
+  </div>
+</footer>
     </div>
   );
 }

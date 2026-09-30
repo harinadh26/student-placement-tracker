@@ -1826,3 +1826,55 @@ button {
     break-inside: avoid;
   }
 }
+/* =========================
+   Footer
+========================= */
+
+.app-footer {
+  width: 100%;
+  margin-top: 40px;
+  padding: 20px 24px;
+  border-top: 1px solid #e5e7eb;
+  background: var(--card-bg, #ffffff);
+  box-sizing: border-box;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.footer-divider {
+  color: #9ca3af;
+}
+
+.footer-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.footer-link:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .footer-divider {
+    display: none;
+  }
+}
