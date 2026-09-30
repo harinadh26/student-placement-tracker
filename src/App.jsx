@@ -25,7 +25,6 @@ import autoTable from "jspdf-autotable";
 const API_URL =
   import.meta.env.VITE_API_URL || "http://localhost:5000";
  
-const [isSaving, setIsSaving] = useState(false);
 
 const STATUS_OPTIONS = [
   "Applied",
@@ -110,7 +109,7 @@ function App() {
 
   const [formData, setFormData] =
     useState(EMPTY_APPLICATION);
-
+const [isSaving, setIsSaving] = useState(false);
   /* =========================
      FILTER STATE
   ========================= */
