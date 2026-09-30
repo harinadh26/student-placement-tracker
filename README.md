@@ -2,6 +2,12 @@
 
 A full-stack web application designed to help students manage and track their job and internship applications throughout the placement process.
 
+## 🚀 Live Demo
+
+🔗 **Live Application:** https://industrious-tenderness-production-ef0b.up.railway.app
+
+🔗 **GitHub Repository:** https://github.com/harinadh26/student-placement-tracker
+
 ## Features
 
 - User registration and login
