@@ -47,9 +47,15 @@ db.connect((err) => {
   console.log("MySQL connected successfully");
 });
 
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  "http://localhost:5173",
+  "https://student-placement-tracker-mauve-zeta.vercel.app",
+].filter(Boolean);
+
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: allowedOrigins,
   })
 );
 
