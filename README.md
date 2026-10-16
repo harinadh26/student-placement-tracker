@@ -1,69 +1,76 @@
 # Student Placement Tracker
 
-A full-stack web application designed to help students manage and track their job and internship applications throughout the placement process.
+A full-stack web application that helps students organize job and internship applications, monitor their placement progress, and manage upcoming interviews in one place.
 
-## 🚀 Live Demo
+**Live Demo:** [Student Placement Tracker](https://student-placement-tracker-mauve-zeta.vercel.app)
 
-🔗 **Live Application:** https://industrious-tenderness-production-ef0b.up.railway.app
+**Backend API:** [Render API](https://student-placement-tracker-3fmy.onrender.com)
 
-🔗 **GitHub Repository:** https://github.com/harinadh26/student-placement-tracker
+**Source Code:** [GitHub Repository](https://github.com/harinadh26/student-placement-tracker)
+
+## Overview
+
+Managing multiple job applications can become difficult during placement season. The Student Placement Tracker provides a centralized dashboard to record applications, update their status, track interviews, and review placement statistics.
+
+The project demonstrates full-stack development using React, Node.js, Express, and MySQL, including authentication, REST API integration, database operations, and cloud deployment.
 
 ## Features
 
-- User registration and login
-- JWT-based authentication
-- Add, edit and delete placement applications
-- Track application status
-- Track job type and location
-- Interview date tracking
-- Upcoming interview reminders
-- Advanced search and filtering
-- Application sorting
-- Interactive placement statistics
-- Application status charts
-- Job type analytics
-- Company-wise application analytics
-- Six-month application trend
-- Interview calendar
-- CSV export
-- PDF export
-- User profile
-- Placement progress tracking
-- Change password
-- Dark and light mode
-- Responsive user interface
+- **Authentication:** User registration and login with JWT-based authentication.
+- **Application Management:** Add, view, edit, and delete job or internship applications.
+- **Application Tracking:** Track statuses such as Applied, Online Assessment, Interview, Selected, and Rejected.
+- **Interview Tracking:** Record interview dates and review upcoming interviews.
+- **Search and Filtering:** Find applications and organize them using available filters and sorting.
+- **Analytics Dashboard:** Visualize application statistics, status distribution, job types, company-wise data, and application trends.
+- **Calendar:** Review scheduled interviews using the interview calendar.
+- **Data Export:** Export application data to CSV and PDF.
+- **Profile Management:** Manage profile information and change your password.
+- **Theme Support:** Switch between dark and light modes.
+- **Responsive UI:** Use the application on desktop and mobile-sized screens.
 
-## Tech Stack
+## Technology Stack
 
-### Frontend
-- React
-- Vite
-- JavaScript
-- CSS
-- Recharts
-- jsPDF
+| Area | Technologies |
+|---|---|
+| Frontend | React, JavaScript, Vite, CSS |
+| Charts and Visualization | Recharts |
+| PDF Export | jsPDF |
+| Backend | Node.js, Express.js |
+| Authentication | JSON Web Tokens (JWT), bcryptjs |
+| Database | MySQL |
+| Database Driver | mysql2 |
+| Deployment | Vercel, Render |
+| Database Hosting | Aiven |
+| Version Control | Git, GitHub |
 
-### Backend
-- Node.js
-- Express.js
-- JWT
-- bcryptjs
-- CORS
+## Application Architecture
 
-### Database
-- MySQL
-- mysql2
+```text
+User
+ |
+ v
+React + Vite Frontend
+(Vercel)
+ |
+ | HTTP requests / REST API
+ v
+Node.js + Express Backend
+(Render)
+ |
+ | mysql2 + SSL connection
+ v
+MySQL Database
+(Aiven)
+```
 
-### Development Tools
-- Git
-- GitHub
-- Visual Studio Code
+The frontend communicates with the backend through API requests. The backend handles authentication, application operations, and database communication. Application records are associated with authenticated users.
 
 ## Project Structure
 
 ```text
 student-placement-tracker/
 │
+├── public/
 ├── src/
 │   ├── App.jsx
 │   ├── App.css
@@ -72,8 +79,6 @@ student-placement-tracker/
 │   ├── profile.jsx
 │   ├── profile.css
 │   └── main.jsx
-│
-├── public/
 │
 ├── Student-Placement-Tracker/
 │   └── backend/
@@ -84,159 +89,162 @@ student-placement-tracker/
 │
 ├── package.json
 ├── package-lock.json
+├── vite.config.js
+├── eslint.config.js
 ├── .gitignore
 └── README.md
+```
 
-## Application Architecture
+## Getting Started
 
-```text
-React Frontend
-      │
-      │ REST API
-      ▼
-Node.js + Express Backend
-      │
-      │ mysql2
-      ▼
-MySQL Database
+### Prerequisites
 
-Database
+Install the following before running the project locally:
 
-The application uses MySQL with the following main tables:
+- [Node.js](https://nodejs.org/)
+- npm (included with Node.js)
+- [Git](https://git-scm.com/)
+- A MySQL database that you can access
 
-users
-applications
+### 1. Clone the repository
 
-The applications table is associated with users so each authenticated user can access only their own placement applications.
-
-Getting Started
-1. Clone the repository
+```bash
 git clone https://github.com/harinadh26/student-placement-tracker.git
 cd student-placement-tracker
-2. Install frontend dependencies
+```
+
+### 2. Install frontend dependencies
+
+From the project root:
+
+```bash
 npm install
-3. Install backend dependencies
+```
+
+### 3. Install backend dependencies
+
+```bash
 cd Student-Placement-Tracker/backend
 npm install
-4. Configure environment variables
+```
 
-Create a .env file inside the backend folder.
+### 4. Configure environment variables
 
-Use .env.example as a template:
+Create a `.env` file inside `Student-Placement-Tracker/backend/`. Use `.env.example` as a reference if it is available.
+
+Configure the following variables with your own database credentials and secrets:
+
+```env
 PORT=5000
 
-DB_HOST=localhost
-DB_USER=placement_user
-DB_PASSWORD=YOUR_MYSQL_PASSWORD
-DB_NAME=student_placement_tracker
+DB_HOST=your_mysql_host
+DB_PORT=3306
+DB_USER=your_mysql_user
+DB_PASSWORD=your_mysql_password
+DB_NAME=your_database_name
 
-JWT_SECRET=YOUR_JWT_SECRET
+DB_SSL=false
+DB_SSL_CA=
+
+JWT_SECRET=your_long_random_secret
 
 CLIENT_URL=http://localhost:5173
+```
 
-Do not commit the .env file to GitHub.
+**Database configuration notes:**
 
-5. Start the backend
+- The example uses a local MySQL connection. If your database requires SSL, configure `DB_SSL=true` and provide the appropriate CA certificate path using `DB_SSL_CA`.
+- Make sure your database and required tables are initialized before testing the application.
+- Use a strong, unique JWT secret.
+- Never commit `.env` files, database passwords, JWT secrets, or private certificates to GitHub.
 
-From the backend folder:
+### 5. Start the backend
 
+From `Student-Placement-Tracker/backend/`:
+
+```bash
 npm start
+```
 
-The backend runs on:
+The local backend should run at:
 
-http://localhost:5000
-6. Start the frontend
+`http://localhost:5000`
 
-Open another terminal and go to the project root:
+You can check the API's root endpoint in your browser.
 
-cd student-placement-tracker
+### 6. Configure and start the frontend
+
+Open a second terminal at the project root.
+
+Create a `.env` file in the root directory with the following frontend variable:
+
+```env
+VITE_API_URL=http://localhost:5000
+```
+
+Then start the frontend:
+
+```bash
 npm run dev
+```
 
-The frontend runs on:
+Open:
 
-http://localhost:5173
+`http://localhost:5173`
 
-Authentication
+> Restart the Vite development server after changing frontend environment variables.
 
-The application uses:
+## Deployment
 
-JWT for authentication
-bcryptjs for password hashing
-Protected application APIs
-User-specific application data
+The application is deployed using the following services:
 
-Users can:
+- **Frontend:** Vercel
+- **Backend:** Render
+- **Database:** Aiven MySQL
 
-Register an account
-Login securely
-Manage their applications
-Change their password
-Logout
-Application Statuses
-The application supports:
+The frontend uses `VITE_API_URL` to identify the backend API. The backend uses environment variables for database configuration, authentication secrets, and the allowed frontend origin.
 
-Applied
-Online Assessment
-Interview
-Selected
-Rejected
-Job Types
-Full Time
-Internship
-Contract
-Analytics
-The dashboard provides visual analytics for:
+For a production deployment:
 
-Application status
-Job type
-Companies
-Application trends
-Interview activity
-Selection success rate
-Export
+1. Configure the backend environment variables in Render.
+2. Configure the MySQL SSL certificate securely if required.
+3. Set `CLIENT_URL` to the deployed frontend's exact origin.
+4. Set `VITE_API_URL` in Vercel to the deployed backend URL.
+5. Redeploy the relevant service after changing environment variables.
+6. Test registration, login, application operations, and data export on the live website.
 
-Application data can be exported as:
+## Security
 
-CSV
-PDF
-Security
-Sensitive configuration is stored using environment variables.
+Security considerations in this project include:
 
-The repository excludes:
+- JWT-based authentication.
+- Password hashing with bcryptjs.
+- Protected application endpoints.
+- User-specific application data.
+- Environment-based configuration for sensitive values.
+- SSL verification for the hosted MySQL connection.
 
-.env
-node_modules
-Build files
-Log files
+Do not expose credentials or private certificates in source code, screenshots, or public repositories.
 
-A .env.example file is provided so developers can configure their own environment.
+## Future Enhancements
 
-Future Enhancements
-Email notifications for interviews
-Job recommendation system
-Resume upload and management
-AI-powered resume analysis
-Placement prediction analytics
-Company research integration
-Cloud deployment
-Admin dashboard
-Automated interview reminders
+Potential improvements include:
 
-Author
+- Automated email notifications for interviews.
+- Job recommendations based on student preferences.
+- Resume upload and management.
+- AI-assisted resume analysis.
+- Placement prediction analytics.
+- Company research integration.
+- An administration dashboard.
 
-Harinadh Valaboju
+## Author
 
-GitHub:
-https://github.com/harinadh26
+**Harinadh Valaboju**
 
+- GitHub: [@harinadh26](https://github.com/harinadh26)
+- Project: [Student Placement Tracker](https://github.com/harinadh26/student-placement-tracker)
 
+---
 
-### Important
-
-There is one correction I recommend **before saving**: your actual folder structure from PowerShell showed that the backend is inside:
-
-```text
-frontend/
-└── Student-Placement-Tracker/
-    └── backend/
-while the React frontend is directly inside frontend/.
+If you find this project useful, consider giving the repository a ⭐ on GitHub.
