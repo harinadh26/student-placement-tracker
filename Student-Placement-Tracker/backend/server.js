@@ -22,6 +22,20 @@ const db = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME || "student_placement_tracker",
   dateStrings: true,
+
+ssl:
+  process.env.DB_SSL === "true"
+    ? {
+        ca: process.env.DB_SSL_CA
+          ? require("fs").readFileSync(process.env.DB_SSL_CA, "utf8")
+          : require("fs").readFileSync(
+              require("path").join(__dirname, "certs", "ca.pem"),
+              "utf8"
+            ),
+        rejectUnauthorized: true,
+      }
+    : undefined,
+
 });
 
 db.connect((err) => {

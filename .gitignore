@@ -17,3 +17,7 @@ dist/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Local database secrets
+Student-Placement-Tracker/backend/.env
+Student-Placement-Tracker/backend/certs/
